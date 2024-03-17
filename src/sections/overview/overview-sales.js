@@ -12,14 +12,32 @@ import {
 } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import { Chart } from 'src/components/chart';
+import React, {useState, useEffect, useCallback} from 'react';
+import axios from 'axios';
+
+/*export const OverviewSales = (props) => {
+  const {sx} = props;
+  const chartOptions = useChartOptions();
+  const[chartSeries, setChartSeries] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://34.116.241.11:5001/api/admin/get/extract_data')
+    .then((response) => {
+      setChartSeries(response.data);
+    })
+    .catch((error) => {
+      console.error('There was an error!', error);
+    });
+  }, []);*/
+
 
 const useChartOptions = () => {
   const theme = useTheme();
 
   return {
     chart: {
+      type: 'line',
       background: 'transparent',
-      stacked: false,
       toolbar: {
         show: false
       }
@@ -50,9 +68,10 @@ const useChartOptions = () => {
       show: false
     },
     plotOptions: {
-      bar: {
-        columnWidth: '40px'
-      }
+      line: {
+        curve: 'smooth',
+        width: 2
+      } 
     },
     stroke: {
       colors: ['transparent'],
@@ -124,14 +143,14 @@ export const OverviewSales = (props) => {
             Sync
           </Button>
         )}
-        title="Sales"
+        title="Supertittel"
       />
       <CardContent>
         <Chart
           height={350}
           options={chartOptions}
           series={chartSeries}
-          type="bar"
+          type="line"
           width="100%"
         />
       </CardContent>

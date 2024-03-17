@@ -144,10 +144,9 @@ export const AuthProvider = (props) => {
       console.log('Login response data: ', data);
 
       const user = {
-        id: '5e86809283e28b96d2d38537',
-        avatar: '/assets/avatars/avatar-anika-visser.png',
-        name: 'Anika Visser',
-        email: 'anika.visser@devias.io'
+        id: data.id,
+        name: data.name,
+        email: ''
       };
 
       dispatch({
