@@ -39,7 +39,7 @@ const useChartOptions = () => {
       type: 'line',
       background: 'transparent',
       toolbar: {
-        show: false
+        show: true
       }
     },
     colors: [theme.palette.primary.main, alpha(theme.palette.primary.main, 0.25)],
@@ -68,13 +68,20 @@ const useChartOptions = () => {
       show: false
     },
     plotOptions: {
+<<<<<<< Updated upstream
       line: {
         curve: 'smooth',
         width: 2
       } 
+=======
+      lines: {
+        curve: 'smooth',
+        width: 3
+      }
+>>>>>>> Stashed changes
     },
     stroke: {
-      colors: ['transparent'],
+      colors: ['black', 'red'],
       show: true,
       width: 2
     },
